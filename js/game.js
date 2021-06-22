@@ -113,7 +113,6 @@ class Game {
 
     end(){
       console.log("Game Over");
-
     }
 
     showWorms(){
@@ -140,42 +139,17 @@ class Game {
       }
     }
 
-    /*setRanks(){
+    setRanks(){
+      camera.position.x = 0;
+      camera.position.y = 0;
       Player.getPlayerInfo();
-      var score1, score2;
-      var index = 0;
-      for(var plr in allPlayers){
-        if(plr === 1){
-          score1 = allPlayers[plr].score;
-        }
-        else if(plr === 2){
-          score2 = allPlayers[plr].score;
-        }
-      }
-      if(score1 > score2){
+      if(allPlayers.player1.score >= allPlayers.player2.score){
         textSize(50);
-        text("PLAYER 1 WON!", displayWidth/2 - 50, displayHeight/2);
+        text("PLAYER 1 WON!", 100, 100);
       }
       else if(score2 > score1){
         textSize(50);
-        text("PLAYER 2 WON!", displayWidth/2 - 50, displayHeight/2);
+        text("PLAYER 2 WON!", 100, 100);
       }
-    }*/
-
-    /*displayRanks(){
-      camera.position.x = 0;
-      camera.position.y = 0;
-
-      Player.getPlayerInfo();
-
-      for(var plr in allPlayers){
-        if(allPlayers[plr].rank === 1){
-          text("Winner: " + allPlayers[plr].name, 0, 85);
-        }
-  
-        else if(allPlayers[plr].rank === 2){
-          text("Loser " + allPlayers[plr].name, 0, 200);
-        }
-      }
-    }*/
+    }
 }

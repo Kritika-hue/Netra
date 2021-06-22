@@ -4,17 +4,12 @@ var gameState = 0;
 var playerCount;
 var allPlayers;
 var database;
-
 var form, player, game;
 
 var blueDuck, redDuck, ducks, blueDuckImg, redDuckImg;
-
 var grass, burrowImg;
-
 var timer, counter = 0, timeLeft = 10, interval;
-
 var redWorm, blueWorm, rGrp, bGrp, rWorm, bWorm;
-
 var p1, p2, p1rank, p2rank;
 
 function preload(){
@@ -22,7 +17,6 @@ function preload(){
   redDuckImg = loadImage("images/redDuck.png");
 
   grass = loadImage("images/grass_Background.jpg");
-
   burrowImg = loadImage("images/Burrow.png");
 
   redWorm = loadImage("images/red_new.png");
@@ -43,7 +37,6 @@ function setup(){
   game.start();
 }
 
-
 function draw(){
   if(playerCount === 2){
     game.update(1);
@@ -59,18 +52,13 @@ function draw(){
     text(timer, 100, 100);
   }
 
-  if(gameState === 2){
-    clear();
-    game.end();
-    //game.setRanks();
-    //game.displayRanks();
-  }
-
   timer = convertSeconds(timeLeft - counter);
   if(counter === timeLeft){
     clearInterval(interval);
-    console.log("Time Up!");
+    gameState = 2;
     game.update(2);
+    clear();
+    game.setRanks();
   }
 }
 
@@ -83,9 +71,5 @@ function convertSeconds(s){
 function timeIt(){
   if(gameState === 1){
     counter++;
-    //countdown();
   }
 }
-
-/*function countdown(){
-}*/
